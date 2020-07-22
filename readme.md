@@ -25,7 +25,7 @@ Makerfabs has two main product lines, the Makepython series based on ESP32 and t
 
 # Maduino
 
-![maduino](md_pic/maduino.jpg)
+![maduino](md_pic/Maduino.jpg)
 
 Maduino is arduino based modification, including Zero, Pro Mini, etc., most of which are 3.3V. See the Wiki for more information. Support for Arduino IDE.
 
