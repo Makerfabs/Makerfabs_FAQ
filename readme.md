@@ -1,4 +1,4 @@
-# Makerfabs FAQ
+# Makerfabs FAQ(unfinished)
 
 ```c++
 /*
@@ -10,6 +10,12 @@ Note：
 ```
 
 [toc]
+
+# *Unfinished*
+
+# Please have a look at [makerfabs](https://www.makerfabs.com/wiki/index.php?title=Main_Page)
+
+
 
 # Overview
 
@@ -35,11 +41,17 @@ Maduino Lora Radio (433M/868M)
 
 #### Without micro USB
 
-
+Lora Soil Moisture Sensor
 
 
 
 ### Arduino Zero
+
+Maduino Zero A9G
+
+
+
+## Connect
 
 
 
