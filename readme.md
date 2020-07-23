@@ -2,14 +2,46 @@
 
 ```c++
 /*
-Version:		V1.0
+Version:		V1.1
 Author:			Vincent
 Create Date:	2020/7/21
 Note：
+2020/7/23 V1.1: Added maduino and Makepython methods for downloading programs.
 */
 ```
 
 [toc]
+
+* [Makerfabs FAQ](#makerfabs-faq)
+* [Overview](#overview)
+* [Maduino](#maduino)
+  * [Type](#type)
+    * [Arduino Pro Mini](#arduino-pro-mini)
+      * [With Micro USB](#with-micro-usb)
+      * [Without micro USB](#without-micro-usb)
+    * [Arduino Zero](#arduino-zero)
+    * [Arduino Shield](#arduino-shield)
+    * [With Micro USB](#with-micro-usb-1)
+    * [Without Micro USB](#without-micro-usb-1)
+      * [Makerfabs CP2104 USB2UART](#makerfabs-cp2104-usb2uart)
+      * [CP2102 MODULES USB TO TTL](#cp2102-modules-usb-to-ttl)
+  * [IDE Set](#ide-set)
+    * [Arduino Pro Mini](#arduino-pro-mini-1)
+    * [Arduino Zero](#arduino-zero-1)
+  * [Upload](#upload)
+  * [Install the library](#install-the-library)
+    * [Arduino Manager](#arduino-manager)
+    * [Zip Library](#zip-library)
+* [MakePython](#makepython)
+  * [Type](#type-1)
+    * [ESP32](#esp32)
+    * [ESP8266](#esp8266)
+    * [MakePython Shield](#makepython-shield)
+  * [Arduino IDE](#arduino-ide)
+  * [uPyCraft IDE](#upycraft-ide)
+  * [Upload](#upload-1)
+    * [ESP32](#esp32-1)
+* [GPIO/PINS](#gpiopins)
 
 
 
@@ -49,7 +81,9 @@ Maduino is arduino based modification, including Zero, Pro Mini, etc., most of w
 
 
 
-## Connect
+### Arduino Shield
+
+- WiFi Shield
 
 ### With Micro USB
 
@@ -148,6 +182,10 @@ Or you can just unzip and copy the folder to the Arduino library folder.Usually 
 
 MakePython is mainly for ESP32 and ESP8266, which supports development in c++ with arduino IDE, and development in micropython with uPyCraft.
 
+ESP32 also supports the Arduino IDE, please refer to ESP32 development environment setup under Arduino.
+
+
+
 ## Type
 
 ### ESP32
@@ -161,9 +199,29 @@ MakePython is mainly for ESP32 and ESP8266, which supports development in c++ wi
 
 
 
+### MakePython Shield
+
+- MakePython Lora
 
 
-## Set IDE 
+
+## Arduino IDE
+
+- Select "File", select "preferences".
+
+![arduino_esp32](md_pic/arduino_esp32.png)
+
+- Add  url : 
+
+```c++
+https://dl.espressif.com/dl/package_esp32_index.json
+```
+
+- Open Boards Manager as the screen snap below. And search “esp32” and install it.Just like arudino zero.
+
+
+
+## uPyCraft IDE 
 
 - Open uPyCraft. Select "Tools",select "board", select "esp32" or "esp8266".It depends on the model you're using.
 
@@ -214,8 +272,4 @@ MakePython is mainly for ESP32 and ESP8266, which supports development in c++ wi
 # GPIO/PINS
 
 Some modules have modified the default IO port due to wiring or onboard components.For example, I2C and SPI interfaces are different from standard Arduino and ESP32.
-
-
-
-# Shield
 
