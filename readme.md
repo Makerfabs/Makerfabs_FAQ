@@ -1,4 +1,4 @@
-# Makerfabs FAQ(unfinished)
+# Makerfabs FAQ
 
 ```c++
 /*
@@ -10,10 +10,6 @@ Note：
 ```
 
 [toc]
-
-# *Unfinished*
-
-# Please have a look at [makerfabs](https://www.makerfabs.com/wiki/index.php?title=Main_Page)
 
 
 
@@ -122,6 +118,30 @@ Arduino Zero is the development board of Arduino ARM series.Additional installat
 
 Just like normal arduino.
 
+## Install the library
+
+### Arduino Manager
+
+Arduino has its own library manager, and for some authenticated third-party libraries, it can be searched in the library manager.Click install.Common libraries such as SSD1306.
+
+- Select "Tools", select "Manage Libraries"
+
+- Search libraries which you nedd.
+
+![manage_library](md_pic/library.png)
+
+### Zip Library
+
+Some of the libraries downloaded manually or provided with the project will come with a ZIP archive.You can add it through the capabilities of the Arduino IDE's import ZIP library.
+
+- Select "Skecth", select "Include Library", select "Add ZIP library..."
+
+![zip](md_pic/zip_lib.png)
+
+Or you can just unzip and copy the folder to the Arduino library folder.Usually the location is "C:\Users\yourname\Documents\Arduino\libraries".
+
+![zip](md_pic/zip_lib-2.png)
+
 # MakePython
 
 ![makepython](md_pic/makepython.png)
@@ -130,7 +150,16 @@ MakePython is mainly for ESP32 and ESP8266, which supports development in c++ wi
 
 ## Type
 
+### ESP32
+
 - MakePython ESP32
+- MakePython ESP32 Color LCD
+
+### ESP8266
+
+- MakePython ESP8266
+
+
 
 
 
@@ -181,3 +210,12 @@ MakePython is mainly for ESP32 and ESP8266, which supports development in c++ wi
 ![upy2](md_pic/upy6.png)
 
 - Press the RST button on ESP32 to reset the development board.
+
+# GPIO/PINS
+
+Some modules have modified the default IO port due to wiring or onboard components.For example, I2C and SPI interfaces are different from standard Arduino and ESP32.
+
+
+
+# Shield
+
