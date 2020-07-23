@@ -12,39 +12,6 @@ Note：
 
 [toc]
 
-* [Makerfabs FAQ](#makerfabs-faq)
-* [Overview](#overview)
-* [Maduino](#maduino)
-  * [Type](#type)
-    * [Arduino Pro Mini](#arduino-pro-mini)
-      * [With Micro USB](#with-micro-usb)
-      * [Without micro USB](#without-micro-usb)
-    * [Arduino Zero](#arduino-zero)
-    * [Arduino Shield](#arduino-shield)
-    * [With Micro USB](#with-micro-usb-1)
-    * [Without Micro USB](#without-micro-usb-1)
-      * [Makerfabs CP2104 USB2UART](#makerfabs-cp2104-usb2uart)
-      * [CP2102 MODULES USB TO TTL](#cp2102-modules-usb-to-ttl)
-  * [IDE Set](#ide-set)
-    * [Arduino Pro Mini](#arduino-pro-mini-1)
-    * [Arduino Zero](#arduino-zero-1)
-  * [Upload](#upload)
-  * [Install the library](#install-the-library)
-    * [Arduino Manager](#arduino-manager)
-    * [Zip Library](#zip-library)
-* [MakePython](#makepython)
-  * [Type](#type-1)
-    * [ESP32](#esp32)
-    * [ESP8266](#esp8266)
-    * [MakePython Shield](#makepython-shield)
-  * [Arduino IDE](#arduino-ide)
-  * [uPyCraft IDE](#upycraft-ide)
-  * [Upload](#upload-1)
-    * [ESP32](#esp32-1)
-* [GPIO/PINS](#gpiopins)
-
-
-
 # Overview
 
 Makerfabs has two main product lines, the Makepython series based on ESP32 and the Arduino-based Maduino series.This FAQ mainly explains how to do code burning for different modules, the simple configuration of the IDE.It also explains some development points caused by hardware inconsistencies, such as pin Settings.
@@ -124,7 +91,7 @@ There are many common usb serial port modules on the market, which are basically
 
 
 
-## IDE Set
+## Arduino IDE
 
 ### Arduino Pro Mini
 
@@ -133,6 +100,8 @@ Arduino Pro Mini is an Arduino IDE supported by default.
 - Select "Tools", select "Board" Arduino Pro or Pro min, select processor ATmega328p 3.3V 8MHz, and select corresponding serial port.
 
 ![pro](md_pic/pro.png)
+
+- If there is no port to display, you need to download the USB driver. [CP210x driver](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 
 ### Arduino Zero
 
@@ -148,9 +117,17 @@ Arduino Zero is the development board of Arduino ARM series.Additional installat
 
 ![zero-2](md_pic/zero-2.png)
 
-## Upload
+- If there is no port to display, you need to download the USB driver. [CP210x driver](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 
-Just like normal arduino.
+## Arduino Upload
+
+Just like normal arduino. 
+
+- Push Upload.
+
+![arduino_upload](md_pic/arduino_upload.png)
+
+
 
 ## Install the library
 
@@ -207,6 +184,8 @@ ESP32 also supports the Arduino IDE, please refer to ESP32 development environme
 
 ## Arduino IDE
 
+Arduino is supported in Espressif products like ESP32.Manual installation is required.The use method is basically the same as that of Arduino. Please refer to the setting of Maduino for details.
+
 - Select "File", select "preferences".
 
 ![arduino_esp32](md_pic/arduino_esp32.png)
@@ -223,7 +202,12 @@ https://dl.espressif.com/dl/package_esp32_index.json
 
 ## uPyCraft IDE 
 
-- Open uPyCraft. Select "Tools",select "board", select "esp32" or "esp8266".It depends on the model you're using.
+- Click this link to download uPyCraft IDE for Windows: : [uPyCraft_win](https://randomnerdtutorials.com/uPyCraftWindows)
+- Double-click to open uPyCraft. 
+
+![uPyCraft](md_pic/upy.png)
+
+- Select "Tools",select "board", select "esp32" or "esp8266".It depends on the model you're using.
 
 ![upy1](md_pic/upy1.png)
 
@@ -245,13 +229,15 @@ https://dl.espressif.com/dl/package_esp32_index.json
 
 
 
-## Upload
+## UPyCraft Upload
 
 ### ESP32
 
 - Connect MakePython ESP32 to your PC, open uPyCraft, and select connect to the serial port.
 
 ![upy2](md_pic/upy5.png)
+
+- If there is no port to display, you need to download the USB driver. [CP210x driver](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 
 - Firmware will be prompted if it has not been burned before or for other reasons.Board selects ESP32, BURN_addr selects 0x1000, Erase_Flash selects Yes, com selects the port number.Firmware Choose Users, click Choose to Choose ESP32-IDF3-20190125-v1.10.bin.（Or other esp32 micropython bin）
 
