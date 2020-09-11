@@ -44,10 +44,15 @@ Support List:
 -------------------------------------------------
 */
 
+//BOARD
+
 #define MP_ESP32 OK
 //#define MP_ESP32_COLOR OK
 //#define ESP32_TSC_9488 OK
 //#define ESP32_ILI9341 ERR don't use
+
+//SHIELD
+#define MP_AUDIO OK
 
 /*
 update  :   2020/9/8
@@ -87,7 +92,7 @@ module  :
 #endif
 
 /*
-update  :   2020/9/4
+update  :   2020/9/11
 name    :   MakePython ESP32 COLOR LCD
 sigillum:   MP_ESP32_COLOR
 wiki    :   https://www.makerfabs.com/wiki/index.php?title=MakePython_ESP32_Color_LCD
@@ -101,11 +106,17 @@ module  :
 #define MP_ESP32_COLOR_I2C_SDA 4
 #define MP_ESP32_COLOR_I2C_SCL 5
 
-//SPI
+//HSPI
 #define MP_ESP32_COLOR_HSPI_MOSI 13
 #define MP_ESP32_COLOR_HSPI_MISO 12
 #define MP_ESP32_COLOR_HSPI_SCK 14
 #define MP_ESP32_COLOR_HSPI_CS 15
+
+//VSPI
+#define MP_ESP32_COLOR_VSPI_MOSI 23
+#define MP_ESP32_COLOR_VSPI_MISO 19
+#define MP_ESP32_COLOR_VSPI_SCK 18
+#define MP_ESP32_COLOR_VSPI_CS 5
 
 //ST7789
 #define MP_ESP32_COLOR_LCD_MOSI MP_ESP32_COLOR_HSPI_MOSI
@@ -126,7 +137,7 @@ module  :
 
 /*
 update  :   2020/9/4
-name    :   ESP32 Touch Screen Camera With 9488
+name    :   ESP32 Touch Screen Camera With ILI9488
 sigillum:   ESP32_TSC_9488 
 wiki    :   
 module  :   
@@ -173,6 +184,7 @@ module  :
 #endif
 
 /*
+    name    :   ESP32 Touch Screen Camera With ILI9341
     Not ready
 */
 
@@ -189,5 +201,54 @@ module  :
 #define LCD_WIDTH 240
 #define LCD_HEIGHT 240
 #define LCD_SPI_HOST VSPI_HOST
+
+#endif
+
+/*
+update  :   2020/9/11
+name    :   MakePython ESP32 Audio
+sigillum:   MP_AUDIO
+wiki    :   https://www.makerfabs.com/wiki/index.php?title=MakePython_Audio
+module  :   
+            (1) audio jack(3.5mm)
+            (2) SD Card
+            (3) NXP Low power Audio DAC: uDA1334
+
+*/
+
+#ifdef MP_AUDIO
+
+//SD Card
+#define MP_AUDIO_SD_CS 22
+
+#if defined MP_ESP32
+    #define MP_AUDIO_SPI_MOSI MP_ESP32_VSPI_MOSI
+    #define MP_AUDIO_SPI_MISO MP_ESP32_VSPI_MISO
+    #define MP_AUDIO_SPI_SCK MP_ESP32_VSPI_SCK
+
+#elif defined MP_ESP32_COLOR
+    #define MP_AUDIO_SPI_MOSI MP_ESP32_COLOR_VSPI_MOSI
+    #define MP_AUDIO_SPI_MISO MP_ESP32_COLOR_VSPI_MISO
+    #define MP_AUDIO_SPI_SCK MP_ESP32_COLOR_VSPI_SCK
+
+#else
+    #define MP_AUDIO_SPI_MOSI 23
+    #define MP_AUDIO_SPI_MISO 19
+    #define MP_AUDIO_SPI_SCK 18
+
+#endif
+
+//Digital I/O used  //Makerfabs Audio V2.0
+#define MP_AUDIO_I2S_DOUT 27
+#define MP_AUDIO_I2S_BCLK 26
+#define MP_AUDIO_I2S_LRC 25
+
+//Button
+#define MP_AUDIO_Pin_vol_up 39
+#define MP_AUDIO_Pin_vol_down 36
+#define MP_AUDIO_Pin_mute 35
+#define MP_AUDIO_Pin_previous 15
+#define MP_AUDIO_Pin_pause 33
+#define MP_AUDIO_Pin_next 2
 
 #endif
