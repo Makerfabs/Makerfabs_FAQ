@@ -3,10 +3,12 @@
 titile  :   Makerfabs IO define
 author  :   Vincent
 create  :   2020/9/4
-version :   1.0
-update  :   2020/9/8
+version :   1.1
+update  :   2020/9/11
 
 Note:
+    v1.0 : Create Project.
+    v1.1 : Add MakePython Audio support.
 
 1.
 For easy use ESP32 GPIO,define SPI, I2C, and LCD, SDcard pins.
@@ -37,6 +39,7 @@ Support List:
     (1)MakePython:
         MakePython ESP32 COLOR LCD
         MakePython ESP32 SSD1306
+        MakePython Audio
 
     (2)Touch Screen Camera:
         ESP32 Touch Screen Camera With 9488
@@ -53,6 +56,8 @@ Support List:
 
 //SHIELD
 #define MP_AUDIO OK
+
+//******************************************************************************
 
 /*
 update  :   2020/9/8
