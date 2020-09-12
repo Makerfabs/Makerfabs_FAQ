@@ -14,7 +14,7 @@ Note：
 
 # Overview
 
-Described how to develop Marduino under the Arduino IDE. 
+Described how to develop Maduino under the Arduino IDE. 
 
 Includes: 
 
@@ -25,7 +25,7 @@ Includes:
 
 # Install Board
 
-There are many types of Marduino, all based on the Arduino series. For example, Pro Mini and UNO are the default support for the Arduino IDE. But Zero needs to be installed.
+There are many types of Maduino , all based on the Arduino series. For example, Pro Mini and UNO are the default support for the Arduino IDE. But Zero needs to be installed.
 
 - Open Arduino IDE
 - Select "Tools", select "board", select "Boards Manager".
@@ -75,7 +75,7 @@ Most projects provide detailed compilation options, depending on the project.
 
 ![pro](md_pic/pro.png)
 
-- Such like Marduino Zero A9G(Arduino Zero)
+- Such like Maduino  Zero A9G(Arduino Zero)
 
 ![zero-2](md_pic/zero-2.png)
 
@@ -85,15 +85,13 @@ Some models have USB ports, and some smaller sensors don't. Here's how it works.
 
 ## With Micro USB
 
-USB integrated CP2104 or other types of serial port chips, no additional converter, directly through the USB cable to connect the serial port.It is used in the same way as the standard Arduino.
-
-![usb](md_pic/usb.png)
+USB integrated CP2104 or other types of serial port chips, no additional converter, directly through the USB cable to connect the serial port. It is used in the same way as the standard Arduino.
 
 ##  With UART
 
-There is no USB socket or integrated serial port chip on some modules. But there are serial ports: VCC, GND, RX, TX, DTR.There are two ways to connect a serial port.
+There is no USB socket or integrated serial port chip on some modules. But there are serial ports: VCC, GND, RX, TX, DTR. There are two ways to connect a serial port.
 
-### Makerfabs CP2104 USB2UART
+### MakerFabs CP2104 USB2UART
 
 Product link : [CP2104 USB2UART](https://www.makerfabs.com/cp2104-usb-to-serial-converter.html)
 
@@ -117,8 +115,6 @@ There are many common usb serial port modules on the market, which are basically
 | GND       | GND        |
 | RX        | TXD        |
 | TX        | RXD        |
-
-![ttl](md_pic/ttl.png)
 
 # Upload
 
