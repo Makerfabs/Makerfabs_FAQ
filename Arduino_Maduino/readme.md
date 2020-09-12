@@ -87,7 +87,7 @@ Some models have USB ports, and some smaller sensors don't. Here's how it works.
 
 USB integrated CP2104 or other types of serial port chips, no additional converter, directly through the USB cable to connect the serial port.It is used in the same way as the standard Arduino.
 
-![usb](E:/code/Makerfabs_FAQ/md_pic/usb.png)
+![usb](md_pic/usb.png)
 
 ##  With UART
 
@@ -97,13 +97,13 @@ There is no USB socket or integrated serial port chip on some modules.But there 
 
 Product link : [CP2104 USB2UART](https://www.makerfabs.com/cp2104-usb-to-serial-converter.html)
 
-![cp2104](E:/code/Makerfabs_FAQ/md_pic/cp2104.png)
+![cp2104](/md_pic/cp2104.png)
 
 This CP2104 USB to Serial Converter is super tiny, a highly-integrated USB-to-UART Bridge Controller providing a simple solution for updating and programming.
 
 The serial port module has the same pin position as the makerfabs module with no USB port.So just plug it into the hole.
 
-![cp2104](E:/code/Makerfabs_FAQ/md_pic/cp2104-2.png)
+![cp2104](md_pic/cp2104-2.png)
 
 The usage of usb cable is the same after that.
 
@@ -118,7 +118,7 @@ There are many common usb serial port modules on the market, which are basically
 | RX        | TXD        |
 | TX        | RXD        |
 
-![ttl](E:/code/Makerfabs_FAQ/md_pic/ttl.png)
+![ttl](md_pic/ttl.png)
 
 # Upload
 
