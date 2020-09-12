@@ -32,7 +32,7 @@ Makerfabs has three  main product lines :
 - ESP32 serial.
 - Arduino-based "Maduino" serial.
 
-**It is used in different ways according to different serial Numbers.** The use of the development board is described in detail in three folders :
+**It is used in different ways according to different serial products.** The use of the development board is described in detail in three folders :
 
 - **/Arduino_Maduino** : Based on traditional Arduino board like Arduino Pro Mini or Arduino Zero.
 - **/Arduino_ESP32** : Develop ESP32 with the Arduino IDE.

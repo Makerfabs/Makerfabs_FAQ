@@ -39,7 +39,7 @@ There are many types of Marduino, all based on the Arduino series. For example, 
 
 # Install Library
 
-Most popular third-party libraries can be found in the library manager.For third-party libraries that are only uploaded to Github, you can install them by installing the ZIP library.You can also simply unzip to the Arduino library folder.
+Most popular third-party libraries can be found in the library manager. For third-party libraries that are only uploaded to Github,  you can install them by installing the ZIP library. You can also simply unzip to the Arduino library folder.
 
 ## Library Manager
 
@@ -53,7 +53,7 @@ Arduino has its own library manager, and for some authenticated third-party libr
 
 ## Install Zip Library
 
-Some of the libraries downloaded manually or provided with the project will come with a ZIP archive.You can add it through the capabilities of the Arduino IDE's import ZIP library.
+Some of the libraries downloaded manually or provided with the project will come with a ZIP archive. You can add it through the capabilities of the Arduino IDE's import ZIP library.
 
 - Select "Skecth", select "Include Library", select "Add ZIP library..."
 
@@ -61,7 +61,7 @@ Some of the libraries downloaded manually or provided with the project will come
 
 ## Unzip To Arduino Library Floder
 
-Or you can just unzip and copy the folder to the Arduino library folder.Usually the location is "C:\Users\yourname\Documents\Arduino\libraries".
+Or you can just unzip and copy the folder to the Arduino library folder. Usually the location is "C:\Users\yourname\Documents\Arduino\libraries".
 
 ![zip](md_pic/zip_lib-2.png)
 
@@ -91,13 +91,13 @@ USB integrated CP2104 or other types of serial port chips, no additional convert
 
 ##  With UART
 
-There is no USB socket or integrated serial port chip on some modules.But there are serial ports: VCC, GND, RX, TX, DTR.There are two ways to connect a serial port.
+There is no USB socket or integrated serial port chip on some modules. But there are serial ports: VCC, GND, RX, TX, DTR.There are two ways to connect a serial port.
 
 ### Makerfabs CP2104 USB2UART
 
 Product link : [CP2104 USB2UART](https://www.makerfabs.com/cp2104-usb-to-serial-converter.html)
 
-![cp2104](/md_pic/cp2104.png)
+![cp2104](md_pic/cp2104.png)
 
 This CP2104 USB to Serial Converter is super tiny, a highly-integrated USB-to-UART Bridge Controller providing a simple solution for updating and programming.
 

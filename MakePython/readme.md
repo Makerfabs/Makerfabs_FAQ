@@ -14,7 +14,7 @@ Note：
 
 # Overview
 
-Described how to develop ESP32 under the Arduino IDE. For MakePython and ESP32 serial.
+Described how to develop ESP32 under the uPyCraft IDE. For MakePython and ESP32 serial.
 
 Includes: 
 
@@ -60,7 +60,7 @@ Includes:
 
 - If there is no port to display, you need to download the USB driver. [CP210x driver](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers)
 - Get a MicroPython fireware from [micropython.org](http://www.micropython.org/download/esp32/)
-- Firmware will be prompted if it has not been burned before or for other reasons.Board selects ESP32, BURN_addr selects 0x1000, Erase_Flash selects Yes, com selects the port number.Firmware Choose Users, click Choose to Choose ESP32-IDF3-20190125-v1.10.bin.（Or other esp32 micropython bin）
+- Firmware will be prompted if it has not been burned before or for other reasons.Board selects ESP32, BURN_addr selects 0x1000, Erase_Flash selects Yes, com selects the port number. Firmware Choose Users, click Choose to Choose ESP32-IDF3-20190125-v1.10.bin.（Or other esp32 micropython bin）
 
 ![burn_esp32](md_pic/burn_firmware.png)
 
