@@ -55,7 +55,8 @@ Support List:
 //#define ESP32_ILI9341 ERR don't use
 
 //SHIELD
-#define MP_AUDIO OK
+//#define MP_AUDIO OK
+#define MP_A9G OK
 
 //******************************************************************************
 
@@ -92,7 +93,7 @@ module  :
 #define MP_ESP32_SSD1306_I2C_ADDR 0x3C
 #define MP_ESP32_SSD1306_WIDTH 128 // OLED display width, in pixels
 #define MP_ESP32_SSD1306_HEIGHT 64 // OLED display height, in pixels
-#define MP_ESP32_SSD1306_RST 4
+#define MP_ESP32_SSD1306_RST -1
 
 #endif
 
@@ -255,5 +256,43 @@ module  :
 #define MP_AUDIO_Pin_previous 15
 #define MP_AUDIO_Pin_pause 33
 #define MP_AUDIO_Pin_next 2
+
+#endif
+
+
+/*
+update  :   2020/9/15
+name    :   MakePython A9G
+sigillum:   MP_A9G
+wiki    :   https://www.makerfabs.com/wiki/index.php?title=MakePython_A9G
+module  :   
+            (1) A9G
+            (2) SD Card
+            (3) SIM Card
+
+*/
+
+#ifdef MP_A9G
+
+//SD Card
+#define MP_A9G_SD_CS 32
+
+#if defined MP_ESP32
+    #define MP_A9G_SPI_MOSI MP_ESP32_HSPI_MOSI
+    #define MP_A9G_SPI_MISO MP_ESP32_HSPI_MISO
+    #define MP_A9G_SPI_SCK MP_ESP32_HSPI_SCK
+
+#elif defined MP_ESP32_COLOR
+    #define MP_A9G_SPI_MOSI MP_ESP32_COLOR_HSPI_MOSI
+    #define MP_A9G_SPI_MISO MP_ESP32_COLOR_HSPI_MISO
+    #define MP_A9G_SPI_SCK MP_ESP32_COLOR_HSPI_SCK
+
+#else
+    #define MP_A9G_SPI_MOSI 13
+    #define MP_A9G_SPI_MISO 12
+    #define MP_A9G_SPI_SCK 14
+
+#endif
+
 
 #endif
