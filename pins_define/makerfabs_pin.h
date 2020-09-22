@@ -4,11 +4,12 @@ titile  :   Makerfabs IO define
 author  :   Vincent
 create  :   2020/9/4
 version :   1.1
-update  :   2020/9/11
+update  :   2020/9/22
 
 Note:
     v1.0 : Create Project.
     v1.1 : Add MakePython Audio support.
+    v1.2 : Ass MakePython A9G support.
 
 1.
 For easy use ESP32 GPIO,define SPI, I2C, and LCD, SDcard pins.
@@ -40,6 +41,7 @@ Support List:
         MakePython ESP32 COLOR LCD
         MakePython ESP32 SSD1306
         MakePython Audio
+        MakePython A9G
 
     (2)Touch Screen Camera:
         ESP32 Touch Screen Camera With 9488
@@ -49,14 +51,14 @@ Support List:
 
 //BOARD
 
-#define MP_ESP32 OK
+//#define MP_ESP32 OK
 //#define MP_ESP32_COLOR OK
-//#define ESP32_TSC_9488 OK
+#define ESP32_TSC_9488 OK
 //#define ESP32_ILI9341 ERR don't use
 
 //SHIELD
 //#define MP_AUDIO OK
-#define MP_A9G OK
+//#define MP_A9G OK
 
 //******************************************************************************
 
@@ -142,7 +144,7 @@ module  :
 #endif
 
 /*
-update  :   2020/9/4
+update  :   2020/9/22
 name    :   ESP32 Touch Screen Camera With ILI9488
 sigillum:   ESP32_TSC_9488 
 wiki    :   
@@ -151,6 +153,8 @@ module  :
             (2) SDcard Reader
             (3) I2C Touch Screen(NS2009 or Ft6236)
             (4) OV2640 Camera
+note    :
+            (1) In camera need VSPI, but actually use HSPI. Why?
 */
 
 #ifdef ESP32_TSC_9488
@@ -178,7 +182,7 @@ module  :
 
 #define ESP32_TSC_9488_LCD_WIDTH 320
 #define ESP32_TSC_9488_LCD_HEIGHT 480
-#define ESP32_TSC_9488_LCD_SPI_HOST HSPI_HOST
+#define ESP32_TSC_9488_LCD_SPI_HOST VSPI_HOST   //?? IF use HSPI, will wrong.
 
 //SDcard
 #define ESP32_TSC_9488_SD_MOSI ESP32_TSC_9488_HSPI_MOSI
