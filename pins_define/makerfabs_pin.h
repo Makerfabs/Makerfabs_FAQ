@@ -3,14 +3,15 @@
 titile  :   Makerfabs IO define
 author  :   Vincent
 create  :   2020/9/4
-version :   1.3
-update  :   2020/9/29
+version :   1.4
+update  :   2020/11/17
 
 Note:
     v1.0 : Create Project.
     v1.1 : Add MakePython Audio support.
     v1.2 : Ass MakePython A9G support.
     v1.3 : Add A9G and ILI9341 support.
+    v1.4 : Add MakePython Voice Card.
 
 1.
 For easy use ESP32 GPIO,define SPI, I2C, and LCD, SDcard pins.
@@ -43,6 +44,7 @@ Support List:
         MakePython ESP32 SSD1306
         MakePython Audio
         MakePython A9G
+        MakePython Voice Card
 
     (2)Touch Screen Camera:
         ESP32 Touch Screen Camera With 9488
@@ -53,14 +55,15 @@ Support List:
 
 //BOARD
 
-//#define MP_ESP32 OK
+#define MP_ESP32 OK
 //#define MP_ESP32_COLOR OK
 //#define ESP32_TSC_9488 OK
-#define ESP32_TSC_9341 OK 
+//#define ESP32_TSC_9341 OK 
 
 //SHIELD
 //#define MP_AUDIO OK
 //#define MP_A9G OK
+#define MP_VOICE OK
 
 //******************************************************************************
 
@@ -322,5 +325,52 @@ module  :
 
 #endif
 
+
+#endif
+
+/*
+update  :   2020/11/17
+name    :   MakePython ESP32 Voice Interaction Hat
+sigillum:   MP_VOICE
+wiki    :   
+module  :   
+            (1) audio jack(3.5mm)
+            (2) SD Card
+            (3) ADC and DAC: wm8960
+
+*/
+
+#ifdef MP_VOICE
+
+//SD Card
+#define MP_VOICE_SD_CS 22
+
+#if defined MP_ESP32
+    #define MP_VOICE_SPI_MOSI MP_ESP32_VSPI_MOSI
+    #define MP_VOICE_SPI_MISO MP_ESP32_VSPI_MISO
+    #define MP_VOICE_SPI_SCK MP_ESP32_VSPI_SCK
+
+#elif defined MP_ESP32_COLOR
+    #define MP_VOICE_SPI_MOSI MP_ESP32_COLOR_VSPI_MOSI
+    #define MP_VOICE_SPI_MISO MP_ESP32_COLOR_VSPI_MISO
+    #define MP_VOICE_SPI_SCK MP_ESP32_COLOR_VSPI_SCK
+
+#else
+    #define MP_VOICE_SPI_MOSI 23
+    #define MP_VOICE_SPI_MISO 19
+    #define MP_VOICE_SPI_SCK 18
+
+#endif
+
+//Digital I/O used 
+#define MP_VOICE_I2S_DOUT 27
+#define MP_VOICE_I2S_DIN 33
+#define MP_VOICE_I2S_BCLK 26
+#define MP_VOICE_I2S_LRC 25
+
+//Button
+#define MP_VOICE_Pin_vol_up 39
+#define MP_VOICE_Pin_vol_down 36
+#define MP_VOICE_Pin_mute 35
 
 #endif
