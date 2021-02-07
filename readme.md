@@ -2,11 +2,12 @@
 
 ```c++
 /*
-Version:		V3.0
+Version:		V4.0
 Author:			Vincent
 Create Date:	2020/7/21
 Update Date:	2020/9/12
 Note：
+2021/2/7 V4.0 : Change Arduino ESP 32 :Add a general WIFI set funtion.
 2020/9/12 v3.0: Split the original documentation into different folders.
 2020/9/8  V2.1: Add ESP32 example.
 2020/9/4  V2.0: Add pins define for easy use.

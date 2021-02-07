@@ -2,11 +2,13 @@
 
 ```c++
 /*
-Version:		V1.0
+Version:		V2.0
 Author:			Vincent
 Create Date:	2020/9/12
-Update Date:	2020/9/12
+Update Date:	2021/2/7
 Note：
+
+2021/2/7 V2.0 :Add a general WIFI set funtion.
 */
 ```
 
@@ -21,6 +23,7 @@ Includes:
 - Install development board
 - Install library
 - Compile options
+- Demo : Set WIFI
 
 # Install Board
 
@@ -95,3 +98,65 @@ Most projects provide detailed compilation options, depending on the project.
 Just select port and push upload...
 
 **Make sure connect with USB cable.**
+
+
+
+# Set WIFI
+
+We provide a header file and function for setting WIFI.
+
+Code is in : /Makerfabs_FAQ/Arduino_ESP32/arduino_example/wifi_set_demo/
+
+## LOGIC 
+
+Chinese:
+
+``` C
+if ESP32开机检测SSID == NULL：
+    ESP32通过AP模式，访问192.168.4.1进行修改，获得SSID和PASSWORD
+    通过NVS存储到FLASH中
+    重启
+else：
+    根据FLASH的SSID和PASSWORD连接wifi
+    
+while 重启五秒内 && 重置按键被按下 ：
+    将NVS设置为NULL
+    重启
+
+if WIFI连接成功:1?0
+
+用户程序()
+```
+
+English:
+
+```c
+wifi_set_main():
+	if check SSID == NULL：
+	    ESP32 into AP method, Visit 192.168.4.1 to set SSID and PASSWORD
+	    via NVS save to FLASH
+	    ESP32 reboot
+	else：
+	    use SSID and PASSWORD in FLASH to connect wifi
+	    
+	while in 5s timeout && write WIFI_SET_PIN low：
+	    set ssid in Flash to "NULL"
+	    ESP32 reboot
+
+	return  WIFI connect success:1?0
+
+usercode()
+```
+
+
+
+## How To Use
+
+- Upload Code to ESP32
+- Push WIFI_SET_BUTTON or set WIFI_SET_PIN(21) to LOW.
+- Then esp32 will reboot
+- Check your phone, you will found an AP named "Makerfabs_ap"
+- Connect it with your smartphone or PC.
+- Visit 192.168.4.1, and a setting page will show.
+- Use webpage set ssid and password, and it will auto reboot.
+- And ESP32 will connect WIFI after reboot.
