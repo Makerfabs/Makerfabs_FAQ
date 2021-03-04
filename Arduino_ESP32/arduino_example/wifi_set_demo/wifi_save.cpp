@@ -345,6 +345,73 @@ void set_wifi_from_url(String get_url)
     record_wifi((char *)ssid.c_str(), (char *)pwd.c_str());
 }
 
+// int wifi_set_main()
+// {
+//     char ssid[SSID_LENGTH];
+//     char password[SSID_LENGTH];
+//     pinMode(WIFI_SET_PIN, INPUT_PULLUP);
+
+//     check_wifi(ssid, password);
+//     if (strcmp(ssid, "NULL") == 0 )
+//     {
+//         //检查SSID是否为NULL
+//         Serial.println("Check SSID is NULL,please connect \"Makerfabs_ap\".");
+//         Serial.println("And visit 192.168.4.1 to set WIFI.");
+//         ap_init();
+//         while (wifi_config_server())
+//             ;
+
+//         //设置完成后休眠3秒重启
+//         delay(3000);
+//         esp_restart();
+//     }
+//     else
+//     {
+//         //3秒内拉低WIFI_SET_PIN则恢复出场设置并重启
+//         Serial.println("Check WIFI_SET_PIN");
+//         int runtime = millis();
+//         int starttime = runtime;
+//         while ((runtime - starttime) < 3000)
+//         {
+//             if (digitalRead(WIFI_SET_PIN) == LOW)
+//             {
+//                 Serial.println("Init WIFI to default \"NULL\"");
+//                 record_wifi("NULL", "NULL0000");
+//                 delay(1000);
+//                 esp_restart();
+//             }
+//             Serial.print(".");
+//             delay(100);
+//             runtime = millis();
+//         }
+//         Serial.println();
+
+//         //Connect wifi
+//         Serial.println("Connecting WIFI");
+//         WiFi.begin(ssid, password);
+
+//         int connect_count = 0;
+
+//         //10S未连接上自动跳过并返回0
+//         while (WiFi.status() != WL_CONNECTED)
+//         {
+//             delay(500);
+//             Serial.print(".");
+//             connect_count++;
+//             if(connect_count > 10)
+//                 return 0;
+//         }
+
+//         // 成功连接上WIFI则输出IP并返回1
+//         Serial.println("");
+//         Serial.println("WiFi connected");
+//         Serial.println("IP address: ");
+//         Serial.println(WiFi.localIP());
+
+//         return 1;
+//     }
+// }
+
 int wifi_set_main()
 {
     char ssid[SSID_LENGTH];
@@ -352,64 +419,54 @@ int wifi_set_main()
     pinMode(WIFI_SET_PIN, INPUT_PULLUP);
 
     check_wifi(ssid, password);
-    if (strcmp(ssid, "NULL") == 0)
+
+    //3秒内拉低WIFI_SET_PIN则恢复出场设置并重启
+    Serial.println("Check WIFI_SET_PIN");
+    int runtime = millis();
+    int starttime = runtime;
+    while ((runtime - starttime) < 3000)
     {
-        //检查SSID是否为NULL
-        Serial.println("Check SSID is NULL,please connect \"Makerfabs_ap\".");
-        Serial.println("And visit 192.168.4.1 to set WIFI.");
-        ap_init();
-        while (wifi_config_server())
-            ;
+        if (digitalRead(WIFI_SET_PIN) == LOW)
+        {
 
-        //设置完成后休眠3秒重启
-        delay(3000);
-        esp_restart();
+            Serial.println("Please connect \"Makerfabs_ap\".");
+            Serial.println("And visit 192.168.4.1 to set WIFI.");
+            ap_init();
+            while (wifi_config_server())
+                ;
+            delay(3000);
+            esp_restart();
+            return 0;
+        }
+        Serial.print(".");
+        delay(100);
+        runtime = millis();
     }
-    else
+    Serial.println();
+
+    //Connect wifi
+    Serial.println("Connecting WIFI");
+    WiFi.begin(ssid, password);
+
+    int connect_count = 0;
+
+    //10S未连接上自动跳过并返回0
+    while (WiFi.status() != WL_CONNECTED)
     {
-        //3秒内拉低WIFI_SET_PIN则恢复出场设置并重启
-        Serial.println("Check WIFI_SET_PIN");
-        int runtime = millis();
-        int starttime = runtime;
-        while ((runtime - starttime) < 3000)
-        {
-            if (digitalRead(WIFI_SET_PIN) == LOW)
-            {
-                Serial.println("Init WIFI to default \"NULL\"");
-                record_wifi("NULL", "NULL0000");
-                delay(1000);
-                esp_restart();
-            }
-            Serial.print(".");
-            delay(100);
-            runtime = millis();
-        }
-        Serial.println();
-
-        //Connect wifi
-        Serial.println("Connecting WIFI");
-        WiFi.begin(ssid, password);
-
-        int connect_count = 0;
-
-        //10S未连接上自动跳过并返回0
-        while (WiFi.status() != WL_CONNECTED)
-        {
-            delay(500);
-            Serial.print(".");
-            connect_count++;
-            if(connect_count > 10)
-                return 0;
-        }
-
-        // 成功连接上WIFI则输出IP并返回1
-        Serial.println("");
-        Serial.println("WiFi connected");
-        Serial.println("IP address: ");
-        Serial.println(WiFi.localIP());
-
-        return 1;
+        delay(500);
+        Serial.print(".");
+        connect_count++;
+        if (connect_count > 10)
+            return 0;
     }
+
+    // 成功连接上WIFI则输出IP并返回1
+    Serial.println("");
+    Serial.println("WiFi connected");
+    Serial.println("IP address: ");
+    Serial.println(WiFi.localIP());
+
+    return 1;
 }
 
 void nvs_test()
