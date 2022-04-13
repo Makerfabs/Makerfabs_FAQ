@@ -12,6 +12,9 @@ Version		:V1.0
 
 
 [toc]
+# Install CP210X Driver
+Download and install UART-to-USB Driver from silabs.
+https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers
 
 # Thonny IDE Install and Set
 ## Download and Install
